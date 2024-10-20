@@ -1,13 +1,5 @@
-import { useState } from "react";
-
-function Header() {
+function Header({ currentLabel, currentLabelHandler }) {
   const labels = ["whoami", "socials"];
-  const [currentLabel, setCurrentLabel] = useState("");
-
-  function currentLabelHandler(label) {
-    setCurrentLabel(label);
-  }
-
   return (
     <header className="flex flex-col space-y-8 border-0 border-red-600">
       <h1 className="text-[#FDF500] text-5xl">./ 0xDuB</h1>
@@ -21,7 +13,6 @@ function Header() {
           />
         ))}
       </div>
-      <h1>{currentLabel}</h1>
     </header>
   );
 }

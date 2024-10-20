@@ -5,5 +5,30 @@
 @font-face {
   font-family: "Fira Code";
   src: local("Fira Code"),
-    url(../public/fonts/Fira_Code/FiraCode-VariableFont_wght.ttf) format("woff");
+    url(./assets/fonts/Fira_Code/FiraCode-VariableFont_wght.ttf) format("woff");
+}
+
+.nnnoise {
+  animation-name: nnnoise;
+  animation-duration: 0.25s;
+  animation-iteration-count: infinite;
+  filter: brightness(0.85) contrast(0.9);
+}
+
+@keyframes nnnoise {
+  0% {
+    background-image: url("./assets/svg/nnnoise0.svg");
+  }
+  25% {
+    background-image: url("./assets/svg/nnnoise1.svg");
+  }
+  50% {
+    background-image: url("./assets/svg/nnnoise2.svg");
+  }
+  75% {
+    background-image: url("./assets/svg/nnnoise3.svg");
+  }
+  100% {
+    background-image: url("./assets/svg/nnnoise4.svg");
+  }
 }
