@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Fira Code";
+  src: local("Fira Code"),
+    url(../public/fonts/Fira_Code/FiraCode-VariableFont_wght.ttf) format("woff");
+}
