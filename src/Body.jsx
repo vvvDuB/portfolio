@@ -101,21 +101,33 @@ function Body() {
     return () => clearInterval(intervalId);
   }, []);
 
+  function counterHandler() {
+    if (counter < 2) {
+      setCounter(counter => counter + 1)
+    } else {
+      setCounter(0)
+    }
+    console.log(counter);
+  }
+
   return (
     <div className="text-[#D1C5C0]">
-      <div>
-        <p className="my-4 text-2xl">{pages[counter].date}</p>
+      <div className="my-4 flex justify-between">
+        <p className="text-2xl">{pages[counter].date}</p>
+        <h1 onClick={() => counterHandler()} className="cursor-pointer hover:text-[#37ebf3]">{"-->"}</h1>
       </div>
       <TypingEffect text={pages[counter].title} />
-      {pages[counter].certs.map((cert) => (
-        <Certs
-          key={cert.certTitle}
-          logo={cert.logo}
-          title={cert.certTitle}
-          text={cert.certText}
-          counter={counter}
-        />
-      ))}
+      <div className={counter === 2 ? `grid grid-cols-3 gap-2 mx-4` : ""}>
+        {pages[counter].certs.map((cert) => (
+          <Certs
+            key={cert.certTitle}
+            logo={cert.logo}
+            title={cert.certTitle}
+            text={cert.certText}
+            counter={counter}
+            />
+            ))}
+      </div>
       {pages[counter].img && pages[0].img}
     </div>
   );
@@ -139,8 +151,8 @@ function Certs({ logo, title, text, counter }) {
   }, [counter]);
 
   return (
-    <div className="flex items-center space-x-4 my-16" ref={elementRef}>
-      <img className="w-16" src={logo} />
+    <div className={counter === 2 ? `flex items-center space-x-4 my-10` : `flex items-center space-x-4 my-16`} ref={elementRef}>
+      <img className={counter === 2 ? `w-12` : `w-16`} src={logo} />
       <div>
         <h1 className="text-2xl">{title}</h1>
         <p>{text}</p>

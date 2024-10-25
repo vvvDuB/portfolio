@@ -16,7 +16,7 @@ function App() {
         currentLabel={currentLabel}
         currentLabelHandler={currentLabelHandler}
       />
-      <Body currentLabel={currentLabel} />
+      {currentLabel === "whoami" ? <Body currentLabel={currentLabel} /> : <h1>Links</h1>}
       <Footer />
     </div>
   );
