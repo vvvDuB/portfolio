@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Body from "./Body";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "./Footer";
 import Linktree from "./Linktree";
 
@@ -10,6 +10,23 @@ function App() {
   function currentLabelHandler(label) {
     setCurrentLabel(label);
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        currentLabelHandler("socials");
+      } else {
+        currentLabelHandler("whoami");
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
@@ -21,7 +38,7 @@ function App() {
         muted
         playsInline
       />
-      <div className="relative z-10 w-full h-full bg-[#272932] px-96 py-16 font-custom bg-opacity-70">
+      <div className="relative z-10 w-full h-full bg-[#272932] px-4 lg:px-96 py-8 lg:py-16 font-custom bg-opacity-70">
         <Header
           currentLabel={currentLabel}
           currentLabelHandler={currentLabelHandler}
