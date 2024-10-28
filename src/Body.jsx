@@ -112,7 +112,7 @@ function Body() {
         <p className="text-2xl">{pages[counter].date}</p>
         <h1
           onClick={() => counterHandler()}
-          className="cursor-pointer hover:text-[#37ebf3]"
+          className="cursor-pointer hover:text-[#bffe00]"
         >
           {"-->"}
         </h1>
