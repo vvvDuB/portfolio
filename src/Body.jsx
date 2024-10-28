@@ -8,7 +8,7 @@ import CSS from "./assets/images/CSS.png";
 import JS from "./assets/images/JS.png";
 import HTML from "./assets/images/HTML.png";
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap"; // Assicurati di importare gsap
+import gsap from "gsap";
 import TypingEffect from "./util/TypingEffect";
 
 function Body() {
@@ -17,7 +17,7 @@ function Body() {
   const img = (
     <div className="w-full grid place-items-end">
       <img
-        className="w-80 mt-12"
+        className="w-80 mt-6"
         src="https://tryhackme-badges.s3.amazonaws.com/0xDuB.png"
         alt="Your Image Badge"
       />
@@ -99,14 +99,10 @@ function Body() {
     }, 5000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [counter]);
 
   function counterHandler() {
-    if (counter < 2) {
-      setCounter(counter => counter + 1)
-    } else {
-      setCounter(0)
-    }
+    setCounter((prevCounter) => (prevCounter < 2 ? prevCounter + 1 : 0));
     console.log(counter);
   }
 
@@ -114,7 +110,12 @@ function Body() {
     <div className="text-[#D1C5C0]">
       <div className="my-4 flex justify-between">
         <p className="text-2xl">{pages[counter].date}</p>
-        <h1 onClick={() => counterHandler()} className="cursor-pointer hover:text-[#37ebf3]">{"-->"}</h1>
+        <h1
+          onClick={() => counterHandler()}
+          className="cursor-pointer hover:text-[#37ebf3]"
+        >
+          {"-->"}
+        </h1>
       </div>
       <TypingEffect text={pages[counter].title} />
       <div className={counter === 2 ? `grid grid-cols-3 gap-2 mx-4` : ""}>
@@ -125,8 +126,8 @@ function Body() {
             title={cert.certTitle}
             text={cert.certText}
             counter={counter}
-            />
-            ))}
+          />
+        ))}
       </div>
       {pages[counter].img && pages[0].img}
     </div>
@@ -145,15 +146,22 @@ function Certs({ logo, title, text, counter }) {
   }, []);
 
   useEffect(() => {
-    gsap.to(elementRef.current, { opacity: 0, duration: 2 }).then(() => {
-      gsap.to(elementRef.current, { opacity: 1, duration: 2 });
+    gsap.to(elementRef.current, { opacity: 0, duration: 1 }).then(() => {
+      gsap.to(elementRef.current, { opacity: 1, duration: 1 });
     });
   }, [counter]);
 
   return (
-    <div className={counter === 2 ? `flex items-center space-x-4 my-10` : `flex items-center space-x-4 my-16`} ref={elementRef}>
+    <div
+      className={
+        counter === 2
+          ? `cursor-pointer flex items-center space-x-4 my-10`
+          : `cursor-pointer flex items-center space-x-4 my-16`
+      }
+      ref={elementRef}
+    >
       <img className={counter === 2 ? `w-12` : `w-16`} src={logo} />
-      <div>
+      <div className="hover:text-[#bffe00]">
         <h1 className="text-2xl">{title}</h1>
         <p>{text}</p>
       </div>
