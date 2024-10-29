@@ -43,6 +43,7 @@ function App() {
       <div className="relative z-10 w-full h-full bg-[#272932] px-4 lg:px-96 py-8 lg:py-16 font-custom bg-opacity-70">
         {!isMobile && (
           <Header
+            isMobile={isMobile}
             currentLabel={currentLabel}
             currentLabelHandler={currentLabelHandler}
           />
