@@ -22,7 +22,7 @@ function Linktree({ isMobile }) {
   };
   const link4 = {
     icon: DS,
-    url: "#",
+    url: "/portfolio/",
     text: "Discord",
   };
 
@@ -35,7 +35,7 @@ function Linktree({ isMobile }) {
       }
     >
       <div className="flex flex-col items-center justify-center space-y-8">
-        <a href="/">
+        <a href="/portfolio/">
           <div className="w-20 h-16 mt-2 flex items-center justify-center bg-[url('./assets/logo/output-onlinetools-removebg-preview2.png')] bg-center bg-cover"></div>
         </a>
         {!isMobile && (
