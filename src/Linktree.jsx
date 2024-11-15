@@ -39,7 +39,7 @@ function Linktree({ isMobile }) {
       <div
         className={
           !isMobile
-            ? `flex flex-col items-center justify-center space-y-16`
+            ? `flex flex-col items-center justify-center space-y-12`
             : `flex flex-col items-center justify-center space-y-8`
         }
       >
