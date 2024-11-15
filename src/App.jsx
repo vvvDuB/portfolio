@@ -7,6 +7,7 @@ import Linktree from "./Linktree";
 function App() {
   const [currentLabel, setCurrentLabel] = useState("whoami");
   const [isMobile, setMobile] = useState(false);
+  const [isIpad, setIpad] = useState(false);
   const [progress, setProgress] = useState(0);
 
   function currentLabelHandler(label) {
@@ -15,10 +16,19 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
-        currentLabelHandler("socials");
+      const width = window.innerWidth;
+
+      if (width < 768) {
         setMobile(true);
+        setIpad(false);
+        currentLabelHandler("socials");
+      } else if (width >= 768 && width <= 1024) {
+        setMobile(false);
+        setIpad(true);
+        currentLabelHandler("whoami");
       } else {
+        setMobile(false);
+        setIpad(false);
         currentLabelHandler("whoami");
       }
     };
@@ -76,7 +86,13 @@ function App() {
           </div>
         </div>
       ) : (
-        <div className="relative z-10 w-full h-full px-4 lg:px-96 py-8 lg:py-16 font-custom">
+        <div
+          className={
+            !isIpad
+              ? `relative z-10 w-full h-full px-24 py-4 font-custom`
+              : `relative z-10 w-full h-full px-4 lg:px-96 py-8 lg:py-16 font-custom`
+          }
+        >
           {!isMobile && (
             <Header
               isMobile={isMobile}
