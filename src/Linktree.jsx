@@ -40,7 +40,7 @@ function Linktree({ isMobile }) {
         </a>
         {!isMobile && (
           <h3 className="text-2xl text-[#bffe00] text-center">
-            <TypingEffect text={"./ 0xDuB"} />
+            <TypingEffect text={"./0xDuB"} />
           </h3>
         )}
         {links.map((el) => (
