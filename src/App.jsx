@@ -89,7 +89,7 @@ function App() {
           ) : (
             <Linktree />
           )}
-          {!isMobile && <Footer />}
+          <Footer isMobile={isMobile} />
         </div>
       )}
     </div>
