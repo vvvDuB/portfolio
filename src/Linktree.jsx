@@ -36,13 +36,7 @@ function Linktree({ isMobile }) {
           : `w-full my-12 text-customWhite-50`
       }
     >
-      <div
-        className={
-          !isMobile
-            ? `flex flex-col items-center justify-center space-y-12`
-            : `flex flex-col items-center justify-center space-y-8`
-        }
-      >
+      <div className="flex flex-col items-center justify-center space-y-8">
         <a href="/portfolio/">
           <div
             className={
