@@ -52,7 +52,7 @@ function App() {
   return (
       <div className="relative w-screen h-screen overflow-hidden bg-black">
         <video
-          style={{ visibility: progress < 50 ? "hidden" : ""}}
+          style={{ visibility: progress < 50 ? "hidden" : "show"}}
           className="absolute top-0 left-0 w-full h-full object-cover"
           src="https://github.com/vvvDuB/portfolio/raw/refs/heads/main/src/assets/video/4990317-hd_1920_1080_30fps.mp4"
           type="video/mp4"
