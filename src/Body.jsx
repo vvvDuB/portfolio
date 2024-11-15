@@ -16,11 +16,10 @@ function Body() {
 
   const img = (
     <div className="w-full grid place-items-end">
-      <img
-        className="w-80 mt-6"
-        src="https://tryhackme-badges.s3.amazonaws.com/0xDuB.png"
-        alt="Your Image Badge"
-      />
+      <iframe
+        src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3335302"
+        style="border:none;"
+      ></iframe>
     </div>
   );
 
