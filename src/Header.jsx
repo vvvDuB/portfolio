@@ -1,7 +1,7 @@
 function Header({ currentLabel, currentLabelHandler }) {
   const labels = ["whoami", "socials"];
   return (
-    <header className="flex flex-col space-y-8 border-0 border-red-600">
+    <header className="flex flex-col space-y-6">
       <h1 className="text-customPrimary-50 text-5xl">./0xDuB</h1>
       <div className="flex space-x-16 border-b-2 border-customPrimary-50">
         {labels.map((label) => (

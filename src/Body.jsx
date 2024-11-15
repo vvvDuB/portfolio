@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import TypingEffect from "./util/TypingEffect";
 
-function Body() {
+function Body({ isIpad }) {
   const [counter, setCounter] = useState(0);
 
   const img = (
@@ -110,7 +110,11 @@ function Body() {
 
   return (
     <div className="text-customWhite-50">
-      <div className="my-4 flex justify-between">
+      <div
+        className={
+          isIpad ? `my-4 flex justify-between` : `my-2 flex justify-between`
+        }
+      >
         <p className="text-2xl">{pages[counter].date}</p>
         <h1
           onClick={() => counterHandler()}

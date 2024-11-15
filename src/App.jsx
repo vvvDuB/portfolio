@@ -101,7 +101,7 @@ function App() {
             />
           )}
           {currentLabel === "whoami" ? (
-            <Body currentLabel={currentLabel} />
+            <Body currentLabel={currentLabel} isIpad={isIpad} />
           ) : (
             <Linktree />
           )}
