@@ -1,7 +1,7 @@
 import THM from "./assets/logo/tryhackme-logo.png";
 /*import IG from "./assets/logo/instagram-logo.png";*/
 import GH from "./assets/logo/github-logo.png";
-/*import DS from "./assets/logo/discord-logo.png";*/
+import DS from "./assets/logo/discord-logo.png";
 import TypingEffect from "./util/TypingEffect";
 
 function Linktree({ isMobile }) {
@@ -19,14 +19,14 @@ function Linktree({ isMobile }) {
     icon: IG,
     url: "https://www.instagram.com/",
     text: "Instagram",
-  };
+  };*/
   const link4 = {
     icon: DS,
-    url: "/portfolio/",
-    text: "Discord",
-  };*/
+    url: "discord",
+    text: "vvvdub",
+  };
 
-  const links = [link1, link2];
+  const links = [link1, link2, link4];
 
   return (
     <div
@@ -60,19 +60,43 @@ function Linktree({ isMobile }) {
 }
 
 function Link({ logo, url, text, mobile }) {
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (err) {
+      console.error("Errore durante la copia:", err);
+    }
+  };
+
   return (
-    <a href={url} target="_blank">
-      <div
-        className={
-          !mobile
-            ? `cursor-pointer w-56 h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-4 rounded-md hover:translate-x-4 text-customWhite-50 duration-300`
-            : `cursor-pointer w-64 h-16 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-4 rounded-md hover:translate-x-4 text-customWhite-50 duration-300`
-        }
-      >
-        <img src={logo} />
-        <p className="mx-4">{text}</p>
-      </div>
-    </a>
+    <>
+      {url === "discord" ? (
+        <div
+          onClick={handleCopy}
+          className={
+            !mobile
+              ? `cursor-pointer w-56 h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-4 rounded-md hover:translate-x-4 text-customWhite-50 duration-300`
+              : `cursor-pointer w-64 h-16 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-4 rounded-md hover:translate-x-4 text-customWhite-50 duration-300`
+          }
+        >
+          <img src={logo} />
+          <p className="mx-4">{text}</p>
+        </div>
+      ) : (
+        <a href={url} target="_blank">
+          <div
+            className={
+              !mobile
+                ? `cursor-pointer w-56 h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-4 rounded-md hover:translate-x-4 text-customWhite-50 duration-300`
+                : `cursor-pointer w-64 h-16 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-4 rounded-md hover:translate-x-4 text-customWhite-50 duration-300`
+            }
+          >
+            <img src={logo} />
+            <p className="mx-4">{text}</p>
+          </div>
+        </a>
+      )}
+    </>
   );
 }
 
