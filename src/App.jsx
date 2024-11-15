@@ -34,7 +34,7 @@ function App() {
     <div className="relative w-screen h-screen overflow-hidden">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/src/assets/video/4990317-hd_1920_1080_30fps.mp4"
+        src="https://github.com/vvvDuB/portfolio/raw/refs/heads/main/src/assets/video/4990317-hd_1920_1080_30fps.mp4"
         autoPlay
         loop
         muted
