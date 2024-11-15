@@ -44,7 +44,13 @@ function Linktree({ isMobile }) {
         }
       >
         <a href="/portfolio/">
-          <div className="w-20 h-16 my-8 flex items-center justify-center bg-[url('./assets/logo/output-onlinetools-removebg-preview2.png')] bg-center bg-cover"></div>
+          <div
+            className={
+              !isMobile
+                ? `w-20 h-16 my-4 flex items-center justify-center bg-[url('./assets/logo/output-onlinetools-removebg-preview2.png')] bg-center bg-cover`
+                : `w-20 h-16 my-8 flex items-center justify-center bg-[url('./assets/logo/output-onlinetools-removebg-preview2.png')] bg-center bg-cover`
+            }
+          ></div>
         </a>
         {!isMobile && (
           <h3 className="text-2xl text-customWhite-50 text-center">
