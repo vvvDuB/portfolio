@@ -4,7 +4,7 @@ import GH from "./assets/logo/github-logo.png";
 import DS from "./assets/logo/discord-logo.png";
 import TypingEffect from "./util/TypingEffect";
 
-function Linktree({ isMobile }) {
+function Linktree({ isMobile, isIpad }) {
   const link1 = {
     icon: THM,
     url: "https://tryhackme.com/r/p/0xDuB",
@@ -36,7 +36,13 @@ function Linktree({ isMobile }) {
           : `w-full my-12 text-customWhite-50`
       }
     >
-      <div className="flex flex-col items-center justify-center space-y-8">
+      <div
+        className={
+          isIpad
+            ? `flex flex-col items-center justify-center space-y-8`
+            : `flex flex-col items-center justify-center space-y-6`
+        }
+      >
         <a href="/portfolio/">
           <div
             className={

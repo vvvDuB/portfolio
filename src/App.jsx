@@ -103,7 +103,7 @@ function App() {
           {currentLabel === "whoami" ? (
             <Body currentLabel={currentLabel} isIpad={isIpad} />
           ) : (
-            <Linktree />
+            <Linktree isIpad={isIpad} />
           )}
           <Footer isMobile={isMobile} />
         </div>
