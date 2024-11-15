@@ -16,11 +16,13 @@ function Body() {
 
   const img = (
     <div className="w-full grid place-items-end">
-      <img
-        className="w-80 mt-6"
-        src="https://tryhackme-badges.s3.amazonaws.com/0xDuB.png"
-        alt="Your Image Badge"
-      />
+      <a href="https://tryhackme.com/r/p/0xDuB" target="_blank">
+        <img
+          className="w-80 mt-6"
+          src="https://tryhackme-badges.s3.amazonaws.com/0xDuB.png"
+          alt="Your Image Badge"
+        />
+      </a>
     </div>
   );
 
@@ -107,12 +109,12 @@ function Body() {
   }
 
   return (
-    <div className="text-[#D1C5C0]">
+    <div className="text-customWhite-50">
       <div className="my-4 flex justify-between">
         <p className="text-2xl">{pages[counter].date}</p>
         <h1
           onClick={() => counterHandler()}
-          className="cursor-pointer hover:text-[#bffe00]"
+          className="cursor-pointer hover:text-customPrimary-50"
         >
           {"-->"}
         </h1>
@@ -161,7 +163,7 @@ function Certs({ logo, title, text, counter }) {
       ref={elementRef}
     >
       <img className={counter === 2 ? `w-12` : `w-16`} src={logo} />
-      <div className="hover:text-[#bffe00]">
+      <div className="hover:text-customPrimary-50">
         <h1 className="text-2xl">{title}</h1>
         <p>{text}</p>
       </div>

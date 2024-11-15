@@ -71,7 +71,7 @@ function App() {
             ></div>
             <div
               style={{ width: `${progress}%` }}
-              className="h-[2px] my-4 bg-[#bffe00]"
+              className="h-[2px] my-4 bg-customPrimary-50"
             ></div>
           </div>
         </div>

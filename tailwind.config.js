@@ -6,6 +6,14 @@ export default {
       fontFamily: {
         custom: ["Fira Code"],
       },
+      colors: {
+        customPrimary: {
+          50: "#740096",
+        },
+        customWhite: {
+          50: "#D1C5C0",
+        },
+      },
     },
   },
   plugins: [],
