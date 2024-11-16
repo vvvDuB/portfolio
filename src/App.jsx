@@ -22,7 +22,7 @@ function App() {
         setMobile(true);
         setIpad(false);
         currentLabelHandler("socials");
-      } else if (width >= 768 && width <= 1100) {
+      } else if (width >= 768 && width <= 1200) {
         setMobile(false);
         setIpad(true);
         currentLabelHandler("whoami");
