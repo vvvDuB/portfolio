@@ -36,8 +36,6 @@ function App() {
     window.addEventListener("resize", handleResize);
     handleResize();
 
-    console.log("ciao");
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -88,13 +86,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <div
-          className={
-            isIpad
-              ? `relative z-10 w-full h-full px-24 py-6 font-custom`
-              : `relative z-10 w-full h-full px-4 lg:px-96 py-8 lg:py-16 font-custom`
-          }
-        >
+        <div className="relative z-10 w-full h-full font-custom 2xl:px-96 2xl:py-12 xl:px-24 xl:py-6 px-4">
           {!isMobile && (
             <Header
               isMobile={isMobile}
