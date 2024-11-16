@@ -11,14 +11,14 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import TypingEffect from "./util/TypingEffect";
 
-function Body({ isIpad }) {
+function Body() {
   const [counter, setCounter] = useState(0);
 
   const img = (
-    <div className="w-full grid place-items-end">
+    <div className="w-full grid place-items-end xl:mt-48 lg:mt-24">
       <a href="https://tryhackme.com/r/p/0xDuB" target="_blank">
         <img
-          className="w-80 mt-6"
+          className="w-80"
           src="https://tryhackme-badges.s3.amazonaws.com/0xDuB.png"
           alt="Your Image Badge"
         />
@@ -110,12 +110,8 @@ function Body({ isIpad }) {
 
   return (
     <div className="text-customWhite-50">
-      <div
-        className={
-          isIpad ? `my-4 flex justify-between` : `my-2 flex justify-between`
-        }
-      >
-        <p className="text-2xl">{pages[counter].date}</p>
+      <div className="flex justify-between xl:my-2 lg:my-4">
+        <p className="xl:text-2xl lg:text-xl">{pages[counter].date}</p>
         <h1
           onClick={() => counterHandler()}
           className="cursor-pointer hover:text-customPrimary-50"
@@ -168,7 +164,7 @@ function Certs({ logo, title, text, counter }) {
     >
       <img className={counter === 2 ? `w-12` : `w-16`} src={logo} />
       <div className="hover:text-customPrimary-50">
-        <h1 className="text-2xl">{title}</h1>
+        <h1 className="xl:text-2xl lg:text-xl">{title}</h1>
         <p>{text}</p>
       </div>
     </div>

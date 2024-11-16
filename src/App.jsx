@@ -7,7 +7,6 @@ import Linktree from "./Linktree";
 function App() {
   const [currentLabel, setCurrentLabel] = useState("whoami");
   const [isMobile, setMobile] = useState(false);
-  const [isIpad, setIpad] = useState(false);
   const [progress, setProgress] = useState(0);
 
   function currentLabelHandler(label) {
@@ -20,15 +19,9 @@ function App() {
 
       if (width < 768) {
         setMobile(true);
-        setIpad(false);
         currentLabelHandler("socials");
-      } else if (width >= 768 && width <= 1200) {
-        setMobile(false);
-        setIpad(true);
-        currentLabelHandler("whoami");
       } else {
         setMobile(false);
-        setIpad(false);
         currentLabelHandler("whoami");
       }
     };
@@ -86,20 +79,19 @@ function App() {
           </div>
         </div>
       ) : (
-        <div className="relative z-10 w-full h-full font-custom 2xl:px-96 2xl:py-12 xl:px-24 xl:py-6 px-4">
+        <div className="relative z-10 w-full h-full font-custom xl:px-96 xl:py-12 lg:px-24 lg:py-12">
           {!isMobile && (
             <Header
-              isMobile={isMobile}
               currentLabel={currentLabel}
               currentLabelHandler={currentLabelHandler}
             />
           )}
           {currentLabel === "whoami" ? (
-            <Body currentLabel={currentLabel} isIpad={isIpad} />
+            <Body currentLabel={currentLabel} />
           ) : (
-            <Linktree isIpad={isIpad} />
+            <Linktree />
           )}
-          <Footer isMobile={isMobile} />
+          <Footer />
         </div>
       )}
     </div>

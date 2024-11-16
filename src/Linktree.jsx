@@ -4,7 +4,7 @@ import GH from "./assets/logo/github-logo.png";
 import DS from "./assets/logo/discord-logo.png";
 import TypingEffect from "./util/TypingEffect";
 
-function Linktree({ isMobile, isIpad }) {
+function Linktree({ isMobile }) {
   const link1 = {
     icon: THM,
     url: "https://tryhackme.com/r/p/0xDuB",
@@ -29,28 +29,10 @@ function Linktree({ isMobile, isIpad }) {
   const links = [link1, link2, link4];
 
   return (
-    <div
-      className={
-        !isMobile
-          ? `w-full my-4 text-customWhite-50`
-          : `w-full my-12 text-customWhite-50`
-      }
-    >
-      <div
-        className={
-          isIpad
-            ? `flex flex-col items-center justify-center space-y-8`
-            : `flex flex-col items-center justify-center space-y-6`
-        }
-      >
+    <div className="w-full text-customWhite-50 sm:my-12 my-4">
+      <div className="flex flex-col items-center justify-center xl:space-y-10 lg:space-y-6 space-y-8">
         <a href="/portfolio/">
-          <div
-            className={
-              !isMobile
-                ? `w-20 h-16 my-4 flex items-center justify-center bg-[url('./assets/logo/output-onlinetools-removebg-preview2.png')] bg-center bg-cover`
-                : `w-20 h-16 my-8 flex items-center justify-center bg-[url('./assets/logo/output-onlinetools-removebg-preview2.png')] bg-center bg-cover`
-            }
-          ></div>
+          <div className="w-20 h-16 flex items-center justify-center bg-[url('./assets/logo/output-onlinetools-removebg-preview2.png')] bg-center bg-cover xl:my-4 lg:my-3 my-8"></div>
         </a>
         {!isMobile && (
           <h3 className="text-2xl text-customWhite-50 text-center">
@@ -71,7 +53,7 @@ function Linktree({ isMobile, isIpad }) {
   );
 }
 
-function Link({ logo, url, text, mobile }) {
+function Link({ logo, url, text }) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
@@ -85,24 +67,14 @@ function Link({ logo, url, text, mobile }) {
       {url === "discord" ? (
         <div
           onClick={handleCopy}
-          className={
-            !mobile
-              ? `cursor-pointer w-56 h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-4 rounded-md hover:translate-x-4 text-customWhite-50 duration-300`
-              : `cursor-pointer w-64 h-16 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-4 rounded-md hover:translate-x-4 text-customWhite-50 duration-300`
-          }
+          className="cursor-pointer h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-6 rounded-md hover:translate-x-4 text-customWhite-50 duration-300 w-56 sm:w-64"
         >
           <img src={logo} />
           <p className="mx-4">{text}</p>
         </div>
       ) : (
         <a href={url} target="_blank">
-          <div
-            className={
-              !mobile
-                ? `cursor-pointer w-56 h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-4 rounded-md hover:translate-x-4 text-customWhite-50 duration-300`
-                : `cursor-pointer w-64 h-16 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-4 rounded-md hover:translate-x-4 text-customWhite-50 duration-300`
-            }
-          >
+          <div className="cursor-pointer h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-6 rounded-md hover:translate-x-4 text-customWhite-50 duration-300 w-56 sm:w-64">
             <img src={logo} />
             <p className="mx-4">{text}</p>
           </div>
