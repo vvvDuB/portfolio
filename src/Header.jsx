@@ -25,8 +25,8 @@ function Labels({ label, currentLabel, currentLabelHandler }) {
       onClick={() => currentLabelHandler(label)}
       className={
         currentLabel === label
-          ? "text-customPrimary-50 cursor-pointer hover:text-customPrimary-50 xl:text-3xl lg:text-2xl my-8"
-          : "text-customWhite-50 cursor-pointer hover:text-customPrimary-50 xl:text-3xl lg:text-2xl my-8"
+          ? "text-customPrimary-50 cursor-pointer hover:text-customPrimary-50 hover:translate-y-2 duration-300 xl:text-3xl lg:text-2xl my-8"
+          : "text-customWhite-50 cursor-pointer hover:text-customPrimary-50 hover:translate-y-2 duration-300 xl:text-3xl lg:text-2xl my-8"
       }
     >
       {label}

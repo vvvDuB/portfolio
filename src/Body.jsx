@@ -15,7 +15,7 @@ function Body() {
   const [counter, setCounter] = useState(0);
 
   const img = (
-    <div className="w-full grid place-items-end xl:mt-44 lg:mt-24">
+    <div className="w-full grid place-items-end hover:scale-105 duration-300 xl:mt-44 lg:mt-24">
       <a href="https://tryhackme.com/r/p/0xDuB" target="_blank">
         <img
           className="w-80"
@@ -111,7 +111,9 @@ function Body() {
   return (
     <div className="text-customWhite-50">
       <div className="flex justify-between xl:my-2 lg:my-4">
-        <p className="xl:text-2xl lg:text-xl">{pages[counter].date}</p>
+        <p className="xl:text-2xl lg:text-xl hover:text-customPrimary-50">
+          {pages[counter].date}
+        </p>
         <h1
           onClick={() => counterHandler()}
           className="cursor-pointer hover:text-customPrimary-50"

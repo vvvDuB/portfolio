@@ -53,7 +53,7 @@ function App() {
   }, []);
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-black">
+    <div className="relative w-screen h-screen overflow-hidden bg-black font-custom">
       <video
         style={{ display: progress < 50 ? "none" : "block" }}
         className="absolute top-0 left-0 w-full h-full object-cover"
