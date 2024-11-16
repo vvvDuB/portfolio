@@ -88,7 +88,7 @@ function App() {
       ) : (
         <div
           className={
-            !isIpad
+            isIpad
               ? `relative z-10 w-full h-full px-24 py-4 font-custom`
               : `relative z-10 w-full h-full px-4 lg:px-96 py-8 lg:py-16 font-custom`
           }
