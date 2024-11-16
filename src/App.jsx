@@ -36,6 +36,8 @@ function App() {
     window.addEventListener("resize", handleResize);
     handleResize();
 
+    console.log("ciao");
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
