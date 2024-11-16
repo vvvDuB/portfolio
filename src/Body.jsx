@@ -15,7 +15,7 @@ function Body() {
   const [counter, setCounter] = useState(0);
 
   const img = (
-    <div className="w-full grid place-items-end xl:mt-48 lg:mt-24">
+    <div className="w-full grid place-items-end xl:mt-44 lg:mt-24">
       <a href="https://tryhackme.com/r/p/0xDuB" target="_blank">
         <img
           className="w-80"
@@ -157,8 +157,8 @@ function Certs({ logo, title, text, counter }) {
     <div
       className={
         counter === 2
-          ? `cursor-pointer flex items-center space-x-4 my-10`
-          : `cursor-pointer flex items-center space-x-4 my-16`
+          ? `cursor-pointer flex items-center space-x-4 xl:my-16 my-10`
+          : `cursor-pointer flex items-center space-x-4 xl:my-24 my-16`
       }
       ref={elementRef}
     >
