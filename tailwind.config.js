@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         custom: ["Fira Code"],
+        customDark: ["GothicDawn"],
       },
       colors: {
         customPrimary: {

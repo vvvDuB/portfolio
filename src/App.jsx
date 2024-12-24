@@ -38,12 +38,14 @@ function App() {
     document.title = `0xDuB - ${currentLabel}`;
   }, [currentLabel]);
 
+  const max = 100000;
+
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
+        if (prevProgress >= max) {
           clearInterval(interval);
-          return 100;
+          return max;
         }
         return prevProgress + 2;
       });
@@ -65,12 +67,12 @@ function App() {
         playsInline
         preload="metadata"
       />
-      {progress < 100 ? (
+      {progress < max ? (
         <div className="w-screen h-screen bg-black flex justify-center items-center">
           <div className="z-10">
             <div
               style={{ visibility: progress % 15 == 0 ? "hidden" : "visible" }}
-              className="w-28 h-24 my-12 flex items-center justify-center bg-[url('./assets/logo/output-onlinetools-removebg-preview2.png')] bg-center bg-cover"
+              className="w-56 h-24 my-12 flex items-center justify-center bg-[url('./assets/logo/my_logo_p.png')] bg-center bg-cover"
             ></div>
             <div
               style={{ width: `${progress}%` }}

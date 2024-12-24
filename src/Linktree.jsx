@@ -29,10 +29,10 @@ function Linktree({ isMobile }) {
   const links = [link1, link2, link4];
 
   return (
-    <div className="w-full text-customWhite-50 sm:my-12 my-4 font-custom">
+    <div className="w-full text-customWhite-50 sm:my-6 my-2 font-custom">
       <div className="flex flex-col items-center justify-center xl:space-y-10 lg:space-y-6 space-y-8">
         <a href="/portfolio/">
-          <div className="w-20 h-16 flex items-center justify-center bg-[url('./assets/logo/output-onlinetools-removebg-preview2.png')] bg-center bg-cover xl:my-4 lg:my-3 my-8"></div>
+          <div className="w-56 h-20 flex items-center justify-center bg-[url('./assets/logo/my_logo_p.png')] bg-center bg-cover xl:my-4 lg:my-3 my-8"></div>
         </a>
         {!isMobile && (
           <h3 className="text-2xl text-customWhite-50 text-center">
