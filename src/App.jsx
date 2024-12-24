@@ -38,7 +38,7 @@ function App() {
     document.title = `0xDuB - ${currentLabel}`;
   }, [currentLabel]);
 
-  const max = 100000;
+  const max = 100;
 
   useEffect(() => {
     const interval = setInterval(() => {
