@@ -34,7 +34,7 @@ function Linktree({ isMobile }) {
         <a href="/portfolio/">
           <div className="w-56 h-20 flex items-center justify-center bg-[url('./assets/logo/my_logo_p.png')] bg-center bg-cover xl:my-4 lg:my-3 my-8"></div>
         </a>
-        {!isMobile && (
+        {isMobile && (
           <h3 className="text-2xl text-customWhite-50 text-center">
             <TypingEffect text={"./0xDuB"} />
           </h3>
