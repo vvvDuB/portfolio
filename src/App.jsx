@@ -72,7 +72,7 @@ function App() {
           <div className="z-10">
             <div
               style={{ visibility: progress % 15 == 0 ? "hidden" : "visible" }}
-              className="w-56 h-24 my-12 flex items-center justify-center bg-[url('./assets/logo/my_logo_p.png')] bg-center bg-cover"
+              className="w-44 h-24 my-12 flex items-center justify-center bg-[url('./assets/logo/vDuB.svg')] bg-center bg-cover"
             ></div>
             <div
               style={{ width: `${progress}%` }}
