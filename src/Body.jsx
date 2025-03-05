@@ -29,6 +29,7 @@ function Body() {
   const cert1 = {
     date: 2024,
     title: "Junior Penetration Tester",
+
     certs: [
       {
         logo: PTLogo,
@@ -42,6 +43,7 @@ function Body() {
   const cert2 = {
     date: 2024,
     title: "System Administrator",
+    class: "",
     certs: [
       {
         logo: CCNALogo,
