@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import TypingEffect from "./util/TypingEffect";
 
-function Body() {
+function Body({ isMobile }) {
   const [counter, setCounter] = useState(0);
 
   /*
@@ -68,7 +68,7 @@ function Body() {
   const cert3 = {
     date: 2023,
     title: "Web Developer",
-    classNames: ["cursor-pointer flex items-center space-x-4 xl:my-16 my-10", "w-12", "grid grid-cols-3 gap-2 mx-4"],
+    classNames: [`cursor-pointer flex items-center space-x-4 xl:my-16 ${!isMobile && "my-10"} my-1`, "w-12", `${!isMobile && "grid grid-cols-3 gap-2"} mx-4`],
     certs: [
       {
         logo: React,
@@ -137,19 +137,21 @@ function Body() {
   }
 
   return (
-    <div className="text-customWhite-50">
-      <div className="flex justify-between xl:my-2 lg:my-4">
+    <div className={`text-customWhite-50 ${isMobile && "p-4"}`}>
+      <div className={`flex justify-between xl:my-2 lg:my-4`}>
         <p className="xl:text-2xl lg:text-xl hover:text-customPrimary-50">
           {pages[counter].date}
         </p>
         <h1
           onClick={() => counterHandler()}
-          className="cursor-pointer hover:text-customPrimary-50"
+          className={`cursor-pointer hover:text-customPrimary-50`}
         >
           {"-->"}
         </h1>
       </div>
-      <TypingEffect text={pages[counter].title} />
+      <div className={`${isMobile && "py-4"}`}>
+        <TypingEffect text={pages[counter].title} fontSize={isMobile ? "18px" : "24px"}/>
+      </div>
       <div className={pages[counter].classNames[2]}>
         {pages[counter].certs.map((cert) => (
           <Certs
@@ -159,6 +161,7 @@ function Body() {
             classNames={pages[counter].classNames}
             text={cert.certText}
             counter={counter}
+            isMobile={isMobile}
           />
         ))}
       </div>
@@ -167,7 +170,7 @@ function Body() {
   );
 }
 
-function Certs({ logo, title, classNames, text, counter }) {
+function Certs({ logo, title, classNames, text, counter, isMobile }) {
   const elementRef = useRef(null);
 
   useEffect(() => {
@@ -193,8 +196,8 @@ function Certs({ logo, title, classNames, text, counter }) {
     >
       <img className={classNames[1]} src={logo} />
       <div className="hover:text-customPrimary-50">
-        <h1 className="xl:text-2xl lg:text-xl">{title}</h1>
-        <p>{text}</p>
+        <h1 className={`xl:text-2xl lg:text-xl ${isMobile && "text-md"}`}>{title}</h1>
+        <p className={`${isMobile && "text-sm"}`}>{text}</p>
       </div>
     </div>
   );

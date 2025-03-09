@@ -1,20 +1,18 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-const TypingEffect = ({ text }) => {
+const TypingEffect = ({ text, fontSize }) => {
   const textRef = useRef(null);
 
   useEffect(() => {
-    const appearanceDuration = 1; // Durata dell'apparizione in secondi
-    const delayDuration = 3; // Pausa prima della scomparsa
-    // eslint-disable-next-line no-unused-vars
-    const disappearanceDuration = 1; // Durata della scomparsa in secondi
+    const appearanceDuration = 1;
+    const delayDuration = 3;
+    const disappearanceDuration = 1;
     const letterCount = text.length;
-    const staggerDuration = appearanceDuration / letterCount; // Tempo per ogni lettera
+    const staggerDuration = appearanceDuration / letterCount;
 
     const timeline = gsap.timeline({ repeat: -1, repeatDelay: 0 });
 
-    // Fase di apparizione
     timeline.fromTo(
       textRef.current.children,
       { opacity: 0 },
@@ -26,10 +24,8 @@ const TypingEffect = ({ text }) => {
       }
     );
 
-    // Pausa di 3 secondi
-    timeline.to({}, { duration: delayDuration }); // Delay senza cambiare niente
+    timeline.to({}, { duration: delayDuration });
 
-    // Fase di scomparsa
     timeline.to(textRef.current.children, {
       opacity: 0,
       duration: staggerDuration,
@@ -39,7 +35,7 @@ const TypingEffect = ({ text }) => {
   }, [text]);
 
   return (
-    <div ref={textRef} style={{ fontFamily: "monospace", fontSize: "24px" }}>
+    <div ref={textRef} style={{ fontFamily: "monospace", fontSize: fontSize }}>
       {text.split("").map((letter, index) => (
         <span key={index} style={{ opacity: 0 }}>
           {letter}

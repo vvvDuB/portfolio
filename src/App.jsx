@@ -81,7 +81,7 @@ function App() {
           ) : (
             <Linktree isMobile={isMobile}/>
           )}
-          <Footer isMobile={isMobile}/>
+          <Footer isMobile={isMobile} currentLabel={currentLabel}/>
         </div>
       )}8 Marzo - Posizione: 64/772
     </div>
