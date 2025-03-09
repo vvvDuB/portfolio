@@ -7,6 +7,7 @@ import Typescript from "./assets/images/Typescript.png";
 import CSS from "./assets/images/CSS.png";
 import JS from "./assets/images/JS.png";
 import HTML from "./assets/images/HTML.png";
+import Olicyber from "./assets/logo/Olicyber.png"
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import TypingEffect from "./util/TypingEffect";
@@ -25,6 +26,19 @@ function Body() {
       </a>
     </div>
   );
+
+  const cert4 = {
+    date: 2025,
+    title: "Olicyber",
+    certs: [
+      {
+        logo: Olicyber,
+        certTitle: "Olicyber - Olimpiadi Italiane di Cybersicurezza",
+        certText: "18 Gennario - IN CORSO",
+      },
+    ],
+    img: img,
+  };
 
   const cert1 = {
     date: 2024,
