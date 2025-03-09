@@ -99,23 +99,27 @@ function Body() {
 
   const cert4 = {
     date: 2025,
-    title: "Olicyber",
+    title: "Olicyber - Olimpiadi Italiane di Cybersicurezza",
     classNames: ["cursor-pointer flex items-center space-x-4 xl:my-24 my-16", "w-16", ""],
     certs: [
       {
         logo: Olicyber,
-        certTitle: "Olicyber - Olimpiadi Italiane di Cybersicurezza",
-        certText: "18 Gennario - IN CORSO",
+        certTitle: "Ammesso alla selezione territoriale",
+        certText: "18 Gennario - Posizione: 720/2600",
+      },
+      {
+        logo: Olicyber,
+        certTitle: "Graduatoria selezione territoriale",
+        certText: "8 Marzo - Posizione: 64/772",
       },
     ],
-    img: img,
   };
 
   const pages = [cert4, cert1, cert2, cert3];
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCounter((prevCounter) => (prevCounter + 1) % 3);
+      setCounter((prevCounter) => (prevCounter + 1) % pages.length);
     }, 5000);
 
     return () => clearInterval(intervalId);
@@ -152,7 +156,7 @@ function Body() {
           />
         ))}
       </div>
-      {pages[counter].img && pages[0].img}
+      {pages[counter].img && pages[1].img}
     </div>
   );
 }
