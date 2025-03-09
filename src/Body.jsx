@@ -27,23 +27,10 @@ function Body() {
     </div>
   );
 
-  const cert4 = {
-    date: 2025,
-    title: "Olicyber",
-    certs: [
-      {
-        logo: Olicyber,
-        certTitle: "Olicyber - Olimpiadi Italiane di Cybersicurezza",
-        certText: "18 Gennario - IN CORSO",
-      },
-    ],
-    img: img,
-  };
-
   const cert1 = {
     date: 2024,
     title: "Junior Penetration Tester",
-    class: "",
+    classNames: ["cursor-pointer flex items-center space-x-4 xl:my-24 my-16", "w-16", ""],
     certs: [
       {
         logo: PTLogo,
@@ -57,7 +44,7 @@ function Body() {
   const cert2 = {
     date: 2024,
     title: "System Administrator",
-    class: "",
+    classNames: ["cursor-pointer flex items-center space-x-4 xl:my-24 my-16", "w-16" , ""],
     certs: [
       {
         logo: CCNALogo,
@@ -75,7 +62,7 @@ function Body() {
   const cert3 = {
     date: 2023,
     title: "Web Developer",
-    class: "",
+    classNames: ["cursor-pointer flex items-center space-x-4 xl:my-16 my-10", "w-12", "grid grid-cols-3 gap-2 mx-4"],
     certs: [
       {
         logo: React,
@@ -110,7 +97,21 @@ function Body() {
     ],
   };
 
-  const pages = [cert1, cert2, cert3];
+  const cert4 = {
+    date: 2025,
+    title: "Olicyber",
+    classNames: ["cursor-pointer flex items-center space-x-4 xl:my-24 my-16", "w-16", ""],
+    certs: [
+      {
+        logo: Olicyber,
+        certTitle: "Olicyber - Olimpiadi Italiane di Cybersicurezza",
+        certText: "18 Gennario - IN CORSO",
+      },
+    ],
+    img: img,
+  };
+
+  const pages = [cert4, cert1, cert2, cert3];
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -139,12 +140,13 @@ function Body() {
         </h1>
       </div>
       <TypingEffect text={pages[counter].title} />
-      <div className={counter === 2 ? `grid grid-cols-3 gap-2 mx-4` : ""}>
+      <div className={pages[counter].classNames[2]}>
         {pages[counter].certs.map((cert) => (
           <Certs
             key={cert.certTitle}
             logo={cert.logo}
             title={cert.certTitle}
+            classNames={pages[counter].classNames}
             text={cert.certText}
             counter={counter}
           />
@@ -155,7 +157,7 @@ function Body() {
   );
 }
 
-function Certs({ logo, title, text, counter }) {
+function Certs({ logo, title, classNames, text, counter }) {
   const elementRef = useRef(null);
 
   useEffect(() => {
@@ -172,16 +174,14 @@ function Certs({ logo, title, text, counter }) {
     });
   }, [counter]);
 
+  console.log(classNames);
+  
   return (
     <div
-      className={
-        counter === 2
-          ? `cursor-pointer flex items-center space-x-4 xl:my-16 my-10`
-          : `cursor-pointer flex items-center space-x-4 xl:my-24 my-16`
-      }
+      className={classNames[0]}
       ref={elementRef}
     >
-      <img className={counter === 2 ? `w-12` : `w-16`} src={logo} />
+      <img className={classNames[1]} src={logo} />
       <div className="hover:text-customPrimary-50">
         <h1 className="xl:text-2xl lg:text-xl">{title}</h1>
         <p>{text}</p>
