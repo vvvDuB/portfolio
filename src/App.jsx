@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import Footer from "./Footer";
 import Linktree from "./Linktree";
 
-function App() {
-  const [currentLabel, setCurrentLabel] = useState("whoami");
-  const [isMobile, setMobile] = useState(false);
+function App() {  
   const [progress, setProgress] = useState(0);
+  const [isMobile, setMobile] = useState(false);
+  const [currentLabel, setCurrentLabel] = useState("whoami")
 
-  function currentLabelHandler(label) {
-    setCurrentLabel(label);
+  const handleCurrentLabel = (label) => {
+    setCurrentLabel(label)
   }
 
   useEffect(() => {
@@ -19,13 +19,10 @@ function App() {
 
       if (width < 768) {
         setMobile(true);
-        currentLabelHandler("socials");
       } else {
         setMobile(false);
-        currentLabelHandler("whoami");
       }
     };
-
     window.addEventListener("resize", handleResize);
     handleResize();
 
@@ -33,10 +30,6 @@ function App() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  useEffect(() => {
-    document.title = `0xDuB - ${currentLabel}`;
-  }, [currentLabel]);
 
   const max = 100;
 
@@ -82,20 +75,15 @@ function App() {
         </div>
       ) : (
         <div className="relative z-10 w-full h-full font-custom xl:px-96 xl:py-12 lg:px-24 lg:py-12">
-          {!isMobile && (
-            <Header
-              currentLabel={currentLabel}
-              currentLabelHandler={currentLabelHandler}
-            />
-          )}
+          <Header isMobile={isMobile} currentLabel={currentLabel} handleCurrentLabel={handleCurrentLabel}/>
           {currentLabel === "whoami" ? (
-            <Body currentLabel={currentLabel} />
+            <Body isMobile={isMobile}/>
           ) : (
-            <Linktree />
+            <Linktree isMobile={isMobile}/>
           )}
-          <Footer />
+          <Footer isMobile={isMobile}/>
         </div>
-      )}
+      )}8 Marzo - Posizione: 64/772
     </div>
   );
 }

@@ -15,6 +15,12 @@ import TypingEffect from "./util/TypingEffect";
 function Body() {
   const [counter, setCounter] = useState(0);
 
+  /*
+  useEffect(() => {
+    document.title = `0xDuB - ${currentLabel}`;
+  }, [currentLabel]);
+  */
+
   const img = (
     <div className="w-full grid place-items-end hover:scale-105 duration-300 xl:mt-44 lg:mt-24">
       <a href="https://tryhackme.com/r/p/0xDuB" target="_blank">

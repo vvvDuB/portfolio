@@ -1,17 +1,21 @@
-function Header({ currentLabel, currentLabelHandler }) {
+function Header({ isMobile, currentLabel, handleCurrentLabel }) {
   const labels = ["whoami", "socials"];
   return (
-    <header className="flex flex-col space-y-8">
-      <h1 className="text-customPrimary-50 2xl:text-5xl lg:text-4xl text-3xl">
-        ./0xDuB
-      </h1>
-      <div className="flex space-x-16 border-b-2 border-customPrimary-50">
+    <header className="flex flex-col space-y-2">
+      {isMobile ? 
+          <a className="flex justify-center" href="/portfolio/">
+            <div className="w-40 h-20 flex items-center justify-center bg-[url('./assets/logo/vDuB.svg')] bg-center bg-cover xl:my-4 lg:my-3 mt-8"></div>
+          </a> : 
+          <h1 className={`text-customPrimary-50 2xl:text-5xl lg:text-4xl text-3xl`}>
+            ./0xDuB
+          </h1>}
+      <div className={`flex border-b-2 space-x-16 border-customPrimary-50 ${isMobile && "justify-center text-2xl"}`}>
         {labels.map((label) => (
           <Labels
             key={label}
             label={label}
             currentLabel={currentLabel}
-            currentLabelHandler={currentLabelHandler}
+            handleCurrentLabel={handleCurrentLabel}
           />
         ))}
       </div>
@@ -19,16 +23,12 @@ function Header({ currentLabel, currentLabelHandler }) {
   );
 }
 
-function Labels({ label, currentLabel, currentLabelHandler }) {
+function Labels({ label, currentLabel, handleCurrentLabel }) {
   return (
-    <h1
-      onClick={() => currentLabelHandler(label)}
-      className={
-        currentLabel === label
-          ? "text-customPrimary-50 cursor-pointer hover:text-customPrimary-50 hover:translate-y-2 duration-300 xl:text-3xl lg:text-2xl my-8"
-          : "text-customWhite-50 cursor-pointer hover:text-customPrimary-50 hover:translate-y-2 duration-300 xl:text-3xl lg:text-2xl my-8"
-      }
-    >
+    <h1 
+      onClick={() => handleCurrentLabel(label)}
+      className={`cursor-pointer hover:text-customPrimary-50 hover:translate-y-2 duration-300 xl:text-3xl lg:text-2xl my-8 ${currentLabel === label ? "text-customPrimary-50" : "text-customWhite-50"}`}
+      >
       {label}
     </h1>
   );

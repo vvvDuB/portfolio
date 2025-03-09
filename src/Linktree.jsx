@@ -29,16 +29,16 @@ function Linktree({ isMobile }) {
   const links = [link1, link2, link4];
 
   return (
-    <div className="w-full text-customWhite-50 md:my-16 mt-24 my-2 font-custom">
+    <div className="w-full text-customWhite-50 md:my-16 mt-20 my-2 font-custom">
       <div className="flex flex-col items-center justify-center xl:space-y-10 lg:space-y-6 space-y-8">
-        <a href="/portfolio/">
-          <div className="w-40 h-20 flex items-center justify-center bg-[url('./assets/logo/vDuB.svg')] bg-center bg-cover xl:my-4 lg:my-3 my-8"></div>
-        </a>
-        {isMobile && (
+        {isMobile ? (
           <h3 className="text-2xl text-customWhite-50 text-center">
             <TypingEffect text={"./0xDuB"} />
           </h3>
-        )}
+        ) : 
+          <a href="/portfolio/">
+            <div className="w-40 h-20 flex items-center justify-center bg-[url('./assets/logo/vDuB.svg')] bg-center bg-cover xl:my-4 lg:my-3 my-8"></div>
+          </a>}
         {links.map((el) => (
           <Link
             key={el.text}
