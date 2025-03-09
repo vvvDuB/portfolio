@@ -9,11 +9,13 @@ function Linktree({ isMobile }) {
     icon: THM,
     url: "https://tryhackme.com/r/p/0xDuB",
     text: "0xDuB",
+    cta: false
   };
   const link2 = {
     icon: GH,
     url: "https://github.com/vvvDuB",
     text: "vvvDuB",
+    cta: false
   };
   /*const link3 = {
     icon: IG,
@@ -24,6 +26,7 @@ function Linktree({ isMobile }) {
     icon: DS,
     url: "discord",
     text: "vvvdub",
+    cta: true
   };
 
   const links = [link1, link2, link4];
@@ -48,7 +51,7 @@ function Linktree({ isMobile }) {
   );
 }
 
-function Link({ logo, url, text }) {
+function Link({ logo, url, text, cta }) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
@@ -59,7 +62,7 @@ function Link({ logo, url, text }) {
 
   return (
     <>
-      {url === "discord" ? (
+      {cta ? (
         <div
           onClick={handleCopy}
           className="cursor-pointer h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-6 rounded-md hover:translate-x-4 text-customWhite-50 duration-300 w-56 sm:w-64"
