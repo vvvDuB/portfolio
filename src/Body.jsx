@@ -50,7 +50,7 @@ function Body({ isMobile }) {
   const cert2 = {
     date: 2024,
     title: "System Administrator",
-    classNames: ["cursor-pointer flex items-center space-x-4 xl:my-24 my-16", "w-16" , ""],
+    classNames: ["cursor-pointer flex items-center space-x-4 xl:my-24 my-12", "w-16" , ""],
     certs: [
       {
         logo: CCNALogo,
@@ -106,7 +106,7 @@ function Body({ isMobile }) {
   const cert4 = {
     date: 2025,
     title: "Olicyber - Olimpiadi Italiane di Cybersicurezza",
-    classNames: ["cursor-pointer flex items-center space-x-4 xl:my-24 my-16", "w-16", ""],
+    classNames: [`cursor-pointer flex items-center space-x-4 xl:my-24 ${isMobile ? "my-12" : "my-16"}`, "w-16", ""],
     certs: [
       {
         logo: Olicyber,
@@ -132,7 +132,7 @@ function Body({ isMobile }) {
   }, [counter]);
 
   function counterHandler() {
-    setCounter((prevCounter) => (prevCounter < pages.length ? prevCounter + 1 : 0));
+    setCounter((prevCounter) => (prevCounter < (pages.length - 1) ? prevCounter + 1 : 0));
   }
 
   return (
@@ -185,8 +185,6 @@ function Certs({ logo, title, classNames, text, counter, isMobile }) {
       gsap.to(elementRef.current, { opacity: 1, duration: 1 });
     });
   }, [counter]);
-
-  console.log(classNames);
   
   return (
     <div
