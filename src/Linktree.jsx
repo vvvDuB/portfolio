@@ -2,6 +2,8 @@ import THM from "./assets/logo/tryhackme-logo.png";
 /*import IG from "./assets/logo/instagram-logo.png";*/
 import GH from "./assets/logo/github-logo.png";
 import DS from "./assets/logo/discord-logo.png";
+import CW from "./assets/logo/codewars.svg"
+import Clipboard from "./assets/logo/clipboard.png"
 import TypingEffect from "./util/TypingEffect";
 
 function Linktree({ isMobile }) {
@@ -9,27 +11,31 @@ function Linktree({ isMobile }) {
     icon: THM,
     url: "https://tryhackme.com/r/p/0xDuB",
     text: "0xDuB",
+    textImg: "",
     cta: false
   };
   const link2 = {
     icon: GH,
     url: "https://github.com/vvvDuB",
     text: "vvvDuB",
+    textImg: "",
     cta: false
   };
-  /*const link3 = {
-    icon: IG,
-    url: "https://www.instagram.com/",
-    text: "Instagram",
-  };*/
-  const link4 = {
+  const link3 = {
     icon: DS,
     url: "discord",
     text: "vvvdub",
+    textImg: Clipboard,
     cta: true
   };
+  const link4 = {
+    icon: CW,
+    url: "https://www.instagram.com/",
+    text: "Codewars",
+    cta: false
+  };
 
-  const links = [link1, link2, link4];
+  const links = [link1, link2, link3, link4];
 
   return (
     <div className={`w-full text-customWhite-50 md:my-16 my-2 font-custom ${isMobile ? "mt-10" : "mt-20"}`}>
@@ -43,7 +49,8 @@ function Linktree({ isMobile }) {
             logo={el.icon}
             url={el.url}
             text={el.text}
-            mobile={isMobile}
+            textImg={el.textImg}
+            cta={el.cta}
           />
         ))}
       </div>
@@ -51,7 +58,7 @@ function Linktree({ isMobile }) {
   );
 }
 
-function Link({ logo, url, text, cta }) {
+function Link({ logo, url, text, textImg, cta }) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
@@ -67,14 +74,19 @@ function Link({ logo, url, text, cta }) {
           onClick={handleCopy}
           className="cursor-pointer h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-6 rounded-md hover:translate-x-4 text-customWhite-50 duration-300 w-56 sm:w-64"
         >
-          <img src={logo} />
-          <p className="mx-4">{text}</p>
+          <img className="w-8" src={logo} />
+          <div className="flex items-center">
+            <p className="mx-4">{text}</p>
+            {textImg && <img className="w-5 h-5" src={textImg} />}
+          </div>
         </div>
       ) : (
         <a href={url} target="_blank">
           <div className="cursor-pointer h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-6 rounded-md hover:translate-x-4 text-customWhite-50 duration-300 w-56 sm:w-64">
-            <img src={logo} />
-            <p className="mx-4">{text}</p>
+            <img className="w-8" src={logo} />
+            <div>
+              <p className="mx-4">{text}</p>
+            </div>
           </div>
         </a>
       )}
