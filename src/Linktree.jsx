@@ -30,7 +30,7 @@ function Linktree({ isMobile }) {
   };
   const link4 = {
     icon: CW,
-    url: "https://www.codewars.com/users/vDuB",
+    url: "https://www.instagram.com/",
     text: "Codewars",
     cta: false
   };
