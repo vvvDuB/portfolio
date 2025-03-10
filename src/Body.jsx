@@ -149,7 +149,7 @@ function Body({ isMobile }) {
         </h1>
       </div>
       <div className={`${isMobile && "py-3"}`}>
-        <TypingEffect text={pages[counter].title} fontSize={isMobile ? "18px" : "24px"}/>
+        <TypingEffect text={pages[counter].title} fontSize={isMobile ? "16px" : "24px"}/>
       </div>
       <div className={pages[counter].classNames[2]}>
         {pages[counter].certs.map((cert) => (
