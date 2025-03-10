@@ -6,7 +6,7 @@ import CW from "./assets/logo/codewars.svg"
 import Clipboard from "./assets/logo/clipboard.png"
 import TypingEffect from "./util/TypingEffect";
 import ClipFirstFrame from "./assets/logo/clipanimation.png"
-import ClipAnimation from "./assets/video/ClipAnimation.gif"
+import ClipAnimation from "./assets/video/ClipAnimation2.gif"
 import { useEffect, useState } from "react";
 
 function Linktree({ isMobile }) {
