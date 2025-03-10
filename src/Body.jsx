@@ -50,7 +50,7 @@ function Body({ isMobile }) {
   const cert2 = {
     date: 2024,
     title: "System Administrator",
-    classNames: [`cursor-pointer flex items-center space-x-4 xl:my-24 ${isMobile ? "my-12" : "my-12"}`, "w-16" , ""],
+    classNames: [`cursor-pointer flex items-center space-x-4 xl:my-24 my-12`, "w-16" , ""],
     certs: [
       {
         logo: CCNALogo,
