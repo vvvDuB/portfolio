@@ -47,6 +47,10 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    document.title = `0xDuB - ${currentLabel}`
+  }, [currentLabel])
+
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-black font-custom">
       <video
