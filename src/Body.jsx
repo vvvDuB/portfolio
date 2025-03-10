@@ -22,7 +22,7 @@ function Body({ isMobile }) {
   */
 
   const img = (
-    <div className="w-full grid place-items-end hover:scale-105 duration-300 xl:mt-44 lg:mt-24">
+    <div className={`w-full grid place-items-end ${isMobile && "scale-75"} hover:scale-105 duration-300 xl:mt-44 lg:mt-24`}>
       <a href="https://tryhackme.com/r/p/0xDuB" target="_blank">
         <img
           className="w-80"
