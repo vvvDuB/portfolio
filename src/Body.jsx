@@ -50,7 +50,7 @@ function Body({ isMobile }) {
   const cert2 = {
     date: 2024,
     title: "System Administrator",
-    classNames: [`cursor-pointer flex items-center space-x-4 xl:my-24 ${isMobile ? "my-10" : "my-12"}`, "w-16" , ""],
+    classNames: [`cursor-pointer flex items-center space-x-4 xl:my-24 ${isMobile ? "my-12" : "my-12"}`, "w-16" , ""],
     certs: [
       {
         logo: CCNALogo,
@@ -68,7 +68,7 @@ function Body({ isMobile }) {
   const cert3 = {
     date: 2023,
     title: "Web Developer",
-    classNames: [`cursor-pointer flex items-center space-x-4 xl:my-16 ${isMobile ? "my-4" : "my-10"}`, "w-12", `grid ${isMobile ? "grid-cols-2 gap-2" : "grid-cols-3 gap-2"} mx-4`],
+    classNames: [`cursor-pointer flex items-center space-x-4 xl:my-16 ${isMobile ? "my-6" : "my-10"}`, "w-12", `grid ${isMobile ? "grid-cols-2 gap-2" : "grid-cols-3 gap-2"} mx-4`],
     certs: [
       {
         logo: React,
