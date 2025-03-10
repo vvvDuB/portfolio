@@ -12,6 +12,7 @@ function Header({ isMobile, currentLabel, handleCurrentLabel }) {
             label={label}
             currentLabel={currentLabel}
             handleCurrentLabel={handleCurrentLabel}
+            isMobile={isMobile}
           />
         ))}
       </div>
@@ -19,11 +20,11 @@ function Header({ isMobile, currentLabel, handleCurrentLabel }) {
   );
 }
 
-function Labels({ label, currentLabel, handleCurrentLabel }) {
+function Labels({ label, currentLabel, handleCurrentLabel, isMobile }) {
   return (
     <h1 
       onClick={() => handleCurrentLabel(label)}
-      className={`cursor-pointer hover:text-customPrimary-50 hover:translate-y-2 duration-300 xl:text-3xl lg:text-2xl my-8 ${currentLabel === label ? "text-customPrimary-50" : "text-customWhite-50"}`}
+      className={`cursor-pointer hover:text-customPrimary-50 hover:translate-y-2 duration-300 xl:text-3xl lg:text-2xl ${isMobile ? "my-4" : "my-8"} ${currentLabel === label ? "text-customPrimary-50" : "text-customWhite-50"}`}
       >
       {label}
     </h1>
