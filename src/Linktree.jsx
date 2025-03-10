@@ -5,6 +5,9 @@ import DS from "./assets/logo/discord-logo.png";
 import CW from "./assets/logo/codewars.svg"
 import Clipboard from "./assets/logo/clipboard.png"
 import TypingEffect from "./util/TypingEffect";
+import ClipFirstFrame from "./assets/logo/clipanimation.png"
+import ClipAnimation from "./assets/video/ClipAnimation.gif"
+import { useEffect, useState } from "react";
 
 function Linktree({ isMobile }) {
   const link1 = {
@@ -59,6 +62,8 @@ function Linktree({ isMobile }) {
 }
 
 function Link({ logo, url, text, textImg, cta }) {
+  const [copied, setCopied] = useState(false);
+
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
@@ -67,22 +72,33 @@ function Link({ logo, url, text, textImg, cta }) {
     }
   };
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (copied) setCopied(false);
+      handleCopy()
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, [copied]);
+
+  const customClass = `cursor-pointer h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-6 rounded-md ${!cta && "hover:translate-x-4"} text-customWhite-50 duration-300 w-56 sm:w-64`
+
   return (
     <>
       {cta ? (
         <div
-          onClick={handleCopy}
-          className="cursor-pointer h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-6 rounded-md hover:translate-x-4 text-customWhite-50 duration-300 w-56 sm:w-64"
+          onClick={() => setCopied(true)}
+          className={customClass}
         >
           <img className="w-8" src={logo} />
           <div className="flex items-center">
             <p className="mx-4">{text}</p>
-            {textImg && <img className="w-5 h-5" src={textImg} />}
+            <img src={copied ? ClipAnimation : ClipFirstFrame} alt="Clip Gif" className="w-7"/>
           </div>
         </div>
       ) : (
         <a href={url} target="_blank">
-          <div className="cursor-pointer h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-6 rounded-md hover:translate-x-4 text-customWhite-50 duration-300 w-56 sm:w-64">
+          <div className={customClass}>
             <img className="w-8" src={logo} />
             <div>
               <p className="mx-4">{text}</p>
