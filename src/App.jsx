@@ -85,7 +85,7 @@ function App() {
           </div>
           <Footer isMobile={isMobile} currentLabel={currentLabel}/>
         </div>
-      )}8 Marzo - Posizione: 64/772
+      )}
     </div>
   );
 }
