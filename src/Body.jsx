@@ -132,8 +132,7 @@ function Body({ isMobile }) {
   }, [counter]);
 
   function counterHandler() {
-    setCounter((prevCounter) => (prevCounter < 2 ? prevCounter + 1 : 0));
-    console.log(counter);
+    setCounter((prevCounter) => (prevCounter < pages.length ? prevCounter + 1 : 0));
   }
 
   return (
@@ -149,7 +148,7 @@ function Body({ isMobile }) {
           {"-->"}
         </h1>
       </div>
-      <div className={`${isMobile && "py-4"}`}>
+      <div className={`${isMobile && "py-3"}`}>
         <TypingEffect text={pages[counter].title} fontSize={isMobile ? "18px" : "24px"}/>
       </div>
       <div className={pages[counter].classNames[2]}>
@@ -196,8 +195,8 @@ function Certs({ logo, title, classNames, text, counter, isMobile }) {
     >
       <img className={classNames[1]} src={logo} />
       <div className="hover:text-customPrimary-50">
-        <h1 className={`xl:text-2xl lg:text-xl ${isMobile && "text-md"}`}>{title}</h1>
-        <p className={`${isMobile && "text-sm"}`}>{text}</p>
+        <h1 className={`xl:text-2xl lg:text-xl ${isMobile && "text-sm"}`}>{title}</h1>
+        <p className={`${isMobile && "text-xs"}`}>{text}</p>
       </div>
     </div>
   );
