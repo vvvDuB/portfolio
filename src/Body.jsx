@@ -36,7 +36,7 @@ function Body({ isMobile }) {
   const cert1 = {
     date: 2024,
     title: "Junior Penetration Tester",
-    classNames: [`cursor-pointer flex items-center space-x-4 xl:my-24 ${isMobile ? "my-12" : "my-16"}`, "w-16", ""],
+    classNames: [`cursor-pointer flex items-center space-x-4 xl:my-24 ${isMobile ? "my-14" : "my-16"}`, "w-16", ""],
     certs: [
       {
         logo: PTLogo,
