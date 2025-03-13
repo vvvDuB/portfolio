@@ -116,7 +116,7 @@ function Body({ isMobile }) {
       {
         logo: Olicyber,
         certTitle: "Graduatoria selezione territoriale",
-        certText: "8 Marzo - Posizione: 64/772",
+        certText: "8 Marzo - Posizione: 55/466",
       },
     ],
   };
