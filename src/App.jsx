@@ -78,7 +78,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <div className="relative z-10 w-full h-full font-custom xl:px-96 xl:py-12 lg:px-24 lg:py-12">
+        <div className={`relative z-10 w-full ${currentLabel === "whoami" && "h-full"} font-custom xl:px-96 xl:py-12 lg:px-24 lg:py-12`}>
           <Header isMobile={isMobile} currentLabel={currentLabel} handleCurrentLabel={handleCurrentLabel}/>
           <div className={`h-3/5`}>
             {currentLabel === "whoami" ? (
