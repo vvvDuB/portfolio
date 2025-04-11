@@ -36,6 +36,7 @@ function Body({ isMobile }) {
         logo: PTLogo,
         certTitle: "CompTIA PenTest+ ce Certification",
         certText: "Expires on September 25, 2027",
+        url: "https://www.credly.com/badges/6d4b6743-ae55-4b42-b7c4-4599ab1cb328"
       },
     ],
     img: img,
@@ -50,11 +51,13 @@ function Body({ isMobile }) {
         logo: CCNALogo,
         certTitle: "Cisco CCNAv7: Switching, Routing, and Wireless Essentials",
         certText: "24/07/2024",
+        url: "#"
       },
       {
         logo: LinuxLogo,
         certTitle: "NDG Linux Essentials",
         certText: "16/05/2024",
+        url: "#"
       },
     ],
   };
@@ -68,31 +71,37 @@ function Body({ isMobile }) {
         logo: React,
         certTitle: "React",
         certText: "",
+        url: "#"
       },
       {
         logo: Angular,
         certTitle: "Angular",
         certText: "",
+        url: "#"
       },
       {
         logo: Typescript,
         certTitle: "Typescript",
         certText: "",
+        url: "#"
       },
       {
         logo: CSS,
         certTitle: "CSS",
         certText: "",
+        url: "#"
       },
       {
         logo: JS,
         certTitle: "JS",
         certText: "",
+        url: "#"
       },
       {
         logo: HTML,
         certTitle: "HTML",
         certText: "",
+        url: "#"
       },
     ],
   };
@@ -106,11 +115,19 @@ function Body({ isMobile }) {
         logo: Olicyber,
         certTitle: "Ammesso alla selezione territoriale",
         certText: "18 Gennario - Posizione: 720/2600",
+        url: "https://olicyber.it"
       },
       {
         logo: Olicyber,
         certTitle: "Graduatoria selezione territoriale",
         certText: "8 Marzo - Posizione: 55/466",
+        url: "https://olicyber.it"
+      },
+      {
+        logo: Olicyber,
+        certTitle: "Finale",
+        certText: "25 maggio - Posizione: ?/100",
+        url: "https://olicyber.it"
       },
     ],
   };
@@ -145,12 +162,14 @@ function Body({ isMobile }) {
       <div className={`${isMobile && "py-3"}`}>
         <TypingEffect text={pages[counter].title} fontSize={isMobile ? "16px" : "24px"}/>
       </div>
+      <h1>{pages[counter].url}</h1>
       <div className={pages[counter].classNames[2]}>
         {pages[counter].certs.map((cert) => (
           <Certs
             key={cert.certTitle}
             logo={cert.logo}
             title={cert.certTitle}
+            url={cert.url}
             classNames={pages[counter].classNames}
             text={cert.certText}
             counter={counter}
@@ -163,7 +182,7 @@ function Body({ isMobile }) {
   );
 }
 
-function Certs({ logo, title, classNames, text, counter, isMobile }) {
+function Certs({ logo, title, url, classNames, text, counter, isMobile }) {
   const elementRef = useRef(null);
 
   useEffect(() => {
@@ -181,16 +200,25 @@ function Certs({ logo, title, classNames, text, counter, isMobile }) {
   }, [counter]);
   
   return (
-    <div
-      className={classNames[0]}
-      ref={elementRef}
-    >
-      <img className={classNames[1]} src={logo} />
-      <div className="hover:text-customPrimary-50">
-        <h1 className={`xl:text-2xl lg:text-xl ${isMobile && "text-sm"}`}>{title}</h1>
-        <p className={`${isMobile && "text-xs"}`}>{text}</p>
+    url === "#" ? (
+      <div className={classNames[0]} ref={elementRef}>
+        <img className={classNames[1]} src={logo} />
+        <div className="hover:text-customPrimary-50">
+          <h1 className={`xl:text-2xl lg:text-xl ${isMobile && "text-sm"}`}>{title}</h1>
+          <p className={`${isMobile && "text-xs"}`}>{text}</p>
+        </div>
       </div>
-    </div>
+    ) : (
+      <a href={url} target="_blank">
+        <div className={classNames[0]} ref={elementRef}>
+          <img className={classNames[1]} src={logo} />
+          <div className="hover:text-customPrimary-50">
+            <h1 className={`xl:text-2xl lg:text-xl ${isMobile && "text-sm"}`}>{title}</h1>
+            <p className={`${isMobile && "text-xs"}`}>{text}</p>
+          </div>
+        </div>
+      </a>
+    )
   );
 }
 
