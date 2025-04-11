@@ -142,8 +142,8 @@ function Body({ isMobile }) {
     return () => clearInterval(intervalId);
   }, [counter]);
 
-  function counterHandler() {
-    setCounter((prevCounter) => (prevCounter < (pages.length - 1) ? prevCounter + 1 : 0));
+  function counterHandler(step) {
+    setCounter((prevCounter) => (prevCounter < (pages.length - 1) ? prevCounter + step : 0));
   }
 
   return (
@@ -153,7 +153,7 @@ function Body({ isMobile }) {
           {pages[counter].date}
         </p>
         <h1
-          onClick={() => counterHandler()}
+          onClick={() => counterHandler(1)}
           className={`cursor-pointer hover:text-customPrimary-50`}
         >
           {"-->"}
