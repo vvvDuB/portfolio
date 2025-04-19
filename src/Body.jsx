@@ -12,9 +12,12 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import TypingEffect from "./util/TypingEffect";
 
-function Body({ isMobile }) {
-  const [counter, setCounter] = useState(0);
+import ArrowBackIosNewSharpIcon from '@mui/icons-material/ArrowBackIosNewSharp';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import PauseSharpIcon from '@mui/icons-material/PauseSharp';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
+function Body({ isMobile }) {
   const img = (
     <div className={`w-full grid place-items-end ${isMobile && "scale-75"} hover:scale-105 duration-300 xl:mt-44 lg:mt-24`}>
       <a href="https://tryhackme.com/r/p/0xDuB" target="_blank">
@@ -132,18 +135,31 @@ function Body({ isMobile }) {
     ],
   };
 
+  const [counter, setCounter] = useState(0);
+  const [timing, setTiming] = useState(5000);
+
   const pages = [cert4, cert1, cert2, cert3];
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCounter((prevCounter) => (prevCounter + 1) % pages.length);
-    }, 5000);
+    }, timing);
 
     return () => clearInterval(intervalId);
-  }, [counter]);
+  }, [counter, timing]);
 
   function counterHandler(step) {
-    setCounter((prevCounter) => (prevCounter < (pages.length - 1) ? prevCounter + step : 0));
+    if(step < 0 && counter == 0) {
+      setCounter(pages.length - 1)
+    } else if (step > 0 && counter == pages.length - 1){
+      setCounter(0)
+    } else {
+      setCounter((prev) => (step < 0) ? prev - 1 : prev + 1)
+    }
+  }
+
+  function stopHandler(){
+    setTiming((oldTiming) => (oldTiming == 5000) ? 1000000000 : 5000)
   }
 
   return (
@@ -152,12 +168,29 @@ function Body({ isMobile }) {
         <p className="xl:text-2xl lg:text-xl hover:text-customPrimary-50">
           {pages[counter].date}
         </p>
-        <h1
-          onClick={() => counterHandler(1)}
-          className={`cursor-pointer hover:text-customPrimary-50`}
-        >
-          {"-->"}
-        </h1>
+        <div className="flex justify-between items-center">
+          <ArrowBackIosNewSharpIcon 
+            onClick={() => counterHandler(-1)}
+            className={`cursor-pointer hover:text-customPrimary-50`} 
+          />
+          {timing == 5000 ? 
+          <PauseSharpIcon
+            onClick={() => stopHandler()}
+            fontSize="large"
+            className={`cursor-pointer hover:text-customPrimary-50`}
+          /> 
+          : 
+          <PlayArrowIcon 
+            onClick={() => stopHandler()}
+            fontSize="large"
+            className={`cursor-pointer hover:text-customPrimary-50`}
+          />}
+          <ArrowForwardIosSharpIcon
+            onClick={() => counterHandler(1)}
+            className={`cursor-pointer hover:text-customPrimary-50`}
+          />
+        </div>
+        
       </div>
       <div className={`${isMobile && "py-3"}`}>
         <TypingEffect text={pages[counter].title} fontSize={isMobile ? "16px" : "24px"}/>
