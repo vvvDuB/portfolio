@@ -117,7 +117,7 @@ function Body({ isMobile }) {
       {
         logo: Olicyber,
         certTitle: "Ammesso alla selezione territoriale",
-        certText: "18 Gennario - Posizione: 720/2600",
+        certText: "18 Gennario - Posizione: 720/3600",
         url: "https://olicyber.it"
       },
       {
@@ -129,7 +129,7 @@ function Body({ isMobile }) {
       {
         logo: Olicyber,
         certTitle: "Finale",
-        certText: "25 maggio - Posizione: ?/100",
+        certText: "25 maggio - Posizione: 69/100",
         url: "https://olicyber.it"
       },
     ],
