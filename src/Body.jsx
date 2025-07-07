@@ -163,7 +163,7 @@ function Body({ isMobile }) {
   }
 
   return (
-    <div className={`text-customWhite-50 ${isMobile && "p-4"}`}>
+    <div className={`text-customWhite-50 dark:text-customWhite-50 text-gray-800 ${isMobile && "p-4"}`}>
       <div className={`flex justify-between xl:my-2 lg:my-4`}>
         <p className="xl:text-2xl lg:text-xl hover:text-customPrimary-50">
           {pages[counter].date}

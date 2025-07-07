@@ -41,9 +41,9 @@ function Linktree({ isMobile }) {
   const links = [link1, link2, link3, link4];
 
   return (
-    <div className={`w-full text-customWhite-50 md:my-16 font-custom ${isMobile ? "mt-6" : "mt-20"}`}>
+    <div className={`w-full text-customWhite-50 dark:text-customWhite-50 text-gray-800 md:my-16 font-custom ${isMobile ? "mt-6" : "mt-20"}`}>
       <div className="flex flex-col items-center justify-center xl:space-y-10 lg:space-y-6 space-y-8">
-        <h3 className="text-2xl text-customWhite-50 text-center">
+        <h3 className="text-2xl text-customWhite-50 dark:text-customWhite-50 text-gray-800 text-center">
           <TypingEffect text={"./0xDuB"} />
         </h3>
         {links.map((el) => (

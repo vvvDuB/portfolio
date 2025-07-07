@@ -8,10 +8,24 @@ function App() {
   const [progress, setProgress] = useState(0);
   const [isMobile, setMobile] = useState(false);
   const [currentLabel, setCurrentLabel] = useState("whoami")
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const handleCurrentLabel = (label) => {
     setCurrentLabel(label)
   }
+
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
+  }
+
+  useEffect(() => {
+    // Apply theme class to document root
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -52,7 +66,7 @@ function App() {
   }, [currentLabel])
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-black font-custom">
+    <div className="relative w-screen h-screen overflow-hidden bg-white dark:bg-black font-custom">
       <video
         style={{ display: progress < 50 ? "none" : "block" }}
         className="absolute top-0 left-0 w-full h-full object-cover"
@@ -65,7 +79,7 @@ function App() {
         preload="metadata"
       />
       {progress < max ? (
-        <div className="w-screen h-screen bg-black flex justify-center items-center">
+        <div className="w-screen h-screen bg-white dark:bg-black flex justify-center items-center">
           <div className="z-10">
             <div
               style={{ visibility: progress % 15 == 0 ? "hidden" : "visible" }}
@@ -79,7 +93,13 @@ function App() {
         </div>
       ) : (
         <div className={`relative z-10 w-full ${currentLabel === "whoami" && "h-full"} font-custom xl:px-96 xl:py-12 lg:px-24 lg:py-12`}>
-          <Header isMobile={isMobile} currentLabel={currentLabel} handleCurrentLabel={handleCurrentLabel}/>
+          <Header 
+            isMobile={isMobile} 
+            currentLabel={currentLabel} 
+            handleCurrentLabel={handleCurrentLabel}
+            isDarkMode={isDarkMode}
+            toggleTheme={toggleTheme}
+          />
           <div className={`h-3/5`}>
             {currentLabel === "whoami" ? (
               <Body isMobile={isMobile}/>
