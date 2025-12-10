@@ -8,8 +8,24 @@ import CSS from "../assets/images/CSS.png";
 import JS from "../assets/images/JS.png";
 import HTML from "../assets/images/HTML.png";
 import Olicyber from "../assets/logo/Olicyber.png";
+import PwnTheM0le from "../assets/logo/pwnthemole.png"
 
 export const certifications = [
+  {
+    id: "moleconbeginner",
+    date: 2025,
+    title: "m0leCon Beginner CTF",
+    hasImage: false,
+    layout: "default",
+    certs: [
+      {
+        logo: PwnTheM0le,
+        certTitle: "COMPUTER SECURITY CONFERENCE | CTF COMPETITION",
+        certText: "Beginner CTF, 29 NOVEMBER 2025",
+        url: "https://beginner.m0lecon.it/",
+      },
+    ],
+  },
   {
     id: "olicyber",
     date: 2025,
@@ -32,7 +48,7 @@ export const certifications = [
       {
         logo: Olicyber,
         certTitle: "Finale",
-        certText: "",
+        certText: "Grand Hotel Salerno, SA",
         url: "https://olicyber.it",
       },
     ],
