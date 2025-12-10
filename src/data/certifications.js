@@ -32,7 +32,7 @@ export const certifications = [
       {
         logo: Olicyber,
         certTitle: "Finale",
-        certText: "25 maggio - Posizione: 69/100",
+        certText: "",
         url: "https://olicyber.it",
       },
     ],
