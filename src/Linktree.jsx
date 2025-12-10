@@ -67,18 +67,20 @@ function Link({ logo, url, text, textImg, cta }) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
+      setCopied(true);
     } catch (err) {
       console.error("Errore durante la copia:", err);
     }
   };
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (copied) setCopied(false);
-      handleCopy()
-    }, 1000);
+    if (copied) {
+      const timeout = setTimeout(() => {
+        setCopied(false);
+      }, 1000);
 
-    return () => clearTimeout(timeout);
+      return () => clearTimeout(timeout);
+    }
   }, [copied]);
 
   const customClass = `cursor-pointer h-14 border-2 bg-customPrimary-50 border-customPrimary-50 flex items-center px-6 rounded-md ${!cta && "hover:translate-x-4"} text-customWhite-50 duration-300 w-56 sm:w-64`
@@ -87,7 +89,7 @@ function Link({ logo, url, text, textImg, cta }) {
     <>
       {cta ? (
         <div
-          onClick={() => setCopied(true)}
+          onClick={handleCopy}
           className={customClass}
         >
           <img className="w-8" src={logo} />
@@ -97,7 +99,7 @@ function Link({ logo, url, text, textImg, cta }) {
           </div>
         </div>
       ) : (
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" rel="noopener noreferrer">
           <div className={customClass}>
             <img className="w-8" src={logo} />
             <div>
